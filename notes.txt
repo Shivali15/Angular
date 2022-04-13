@@ -1,0 +1,169 @@
+Features of Angular:
+
+1.Two way Data binding : changes is automatically updated in the component class 
+2.Powerful Routing Support :
+3.Expressive HTML :control and render HTML pages
+4.Modular by design
+5.Built-in Back end Support 
+6. Active Community.
+
+
+Installling and setting up an angular Development   
+
+1. Angular requires knowledge of javascript ,HTML & CSS
+2. Install NODE-JS and NPM 
+3. Install VS_Code 
+4. Install Angular CLI : this is a basic system that is required to develop an application 
+   
+
+Angular CLI:
+  Angular command line interface 
+
+
+
+
+Performed in terminal :
+node -v
+npm -v
+npm install upper-case
+npm install -g @angular/cli
+ng v      // to find the version of angular in ur pc 
+ng new  AngularApp5   // to create a new angular project 
+ng s      or ng serve
+
+
+Angular CLI does the following :
+1.create a new directory AngularApp5
+2. Sets up the folder structure for the application 
+3. Download and install angular librsries and any other dependencies
+4.Install and configures Typescript
+5.Install and configures Karma & Protactor for testing 
+
+Angular project folder structure:
+
+.editorconfig : this is congfiguration file for the visual studio code editor 
+
+.gitignore : Git configuration to make sure auto generated files are not commited to source control //completely related to git where we  control some whch are not commited 
+
+.angular.json: this is the configuartion file for angular CLI.
+
+browserlist : Ensures the compatibility of the angular app with different browsers.
+
+ karma.conf.js : the configuration file forthe karma test runner 
+
+package.json : the package.json is an npm configuration file , that lists the third party packages that your project depends on
+
+tscongig.json ,tsconfig.app.json & tsconfig.spec.json are typescript configuration files.
+ the tsconfig.json is the typescript compiler configuration file .this file  specifies the compileroptions required for the typescript to compile the project .the tsconfig.app.json is used for compiling the code while tsconfig.spec.json for compiling the tests
+
+e2e :
+this floder contains the files required for end to end tests by protactor. protactor allows us to test our application against a real browser 
+
+To check version of angular :
+ng v
+
+Adding new port :
+ ng serve --port 4401 
+
+to run default port :
+ng serve --open
+ng serve -o
+
+To run :
+ng serve ----to start
+ng build ----to build
+ng test  ----to test
+
+To install bootstrap :
+npm i bootstrap 
+
+component :
+1. The app.component.ts is the component that is added to the project by Angukar ClI .you will find it under the folder app/src
+2. The component class is the most important part of our application .it repersent the view othe application 
+3. a view is a region on th screen .It consists of three main parts i.e a classs, class decortor and an import statement
+
+
+Import statement :
+The import statement is used to import the libraries that are used in pur component class 
+
+
+app.component.ts:  
+
+A. selector :
+1.App slector   --- app
+2. class selector   ---- .app-root  add dot (.)
+3. attribute selector  ---  [app-root]   add the name of attribute in square brackets []
+    attribute +value --- div[app=app1]
+
+B. templateURL
+  1.inline template  : using this we can have multiple line of html code in app.component.ts  `` 
+  2.external template : 
+C. styleURL
+
+templateURL : view of application 
+
+Root Module :
+1. Angular organizes the application as angular modules .The modules are closely related blocks of code in functionality .Every application must have at least one module 
+2. The module which loads first is the root module 
+3.The root module is called app.module.ts
+4.The structure of the angular module is similar to the component class  like component it consist of three parts class, class decorator and import statement 
+
+Boostrapping our root module :
+the app.component.html is the file which we need to show it the user .it is bound to Appcomponent component . we indicated that the AppComponent is to be bootstrapped when Appmodule is loaded
+
+styleUrl : what style we have added to application
+
+
+index.html file :
+index.html is entry point of pur application 
+
+
+style.css:
+what ever the change made in style.css it will apply to whole application 
+it is the global style sheet of angular application 
+
+
+
+
+components in angular :
+the angular applications will have lots of components 
+These components work together toproduce the complete user interface of the application 
+
+the components consists of three main building blocks 
+1. Template
+2. Class
+3. MetaData 
+
+
+1. template : 
+the template defines he layout of the view and  defines ht is rendered on the page .
+template is nothing but a HTML 
+two type:
+    1.template inline 
+    2.external template
+
+
+
+
+
+Data Binding :
+ *data binding is a technique where the data stays in sync between the component and the view 
+
+*user upadte the data in the view ,angular updates the component .when the component gets new data ,the angular updates the view 
+ * the data binding in angular canbe broadly classified into two groups 
+     1.One way binding 
+     2. Two way binding 
+
+
+One way binding: in one way binding data flows from one drection .Either from view to component or from component to view 
+
+*from component to view :  to bind  data from component we,amke use of inetrpolaton and property binding 
+* from view to component : we make use of event binding 
+
+
+Interpolation :
+{{}} -> double curly brackets for interpolation 
+{{templateExpression}}
+anguar first evaluates the Template Expression and converts it into  a string .then it replaces 
+template expression with the result inthe original string in HTML .
+whenever the template expression changes the angular updates the original string again 
