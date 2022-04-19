@@ -62,8 +62,9 @@ this floder contains the files required for end to end tests by protactor. prota
 To check version of angular :
 ng v
 
-Adding new port :
+Adding new port : to change port 
  ng serve --port 4401 
+ ng s -o --port=4401 
 
 to run default port :
 ng serve --open
@@ -167,3 +168,127 @@ Interpolation :
 anguar first evaluates the Template Expression and converts it into  a string .then it replaces 
 template expression with the result inthe original string in HTML .
 whenever the template expression changes the angular updates the original string again 
+Interpolation not work with  non string types 
+
+
+Attribute and properties :
+Attribute and properties are not same 
+Attribute are defined by html 
+Properties are defined by DOM(document object model)
+Attributes initialize DOM properties and they are done .
+Attributes values cannont change once they are defined 
+
+property values can change 
+Property-Binding :
+ 
+check in console :
+input property:
+$0.getAttribute("value")
+'Konverge'
+$0.value
+'Konverge ai'
+
+
+default component called -> app component
+Inside app component :
+->app.component.css  = work with style
+->app.component.html  =template view 
+->app.component.ts     = typescript file contains data 
+->app.component.spec.ts   =testing file
+-> app.module.ts    = root module of application 
+
+
+
+To generate component = ng g  c "nameofcomponent"
+               example := ng g c employee
+ng ->  for angular cli
+g-> for generate
+c-> for component
+
+This employee component are generated in app floder 
+upadte app.mosule.ts : becoz this root module
+by executing this : cli create 4 default files :
+employee.component.css
+employee.component.html
+employee.component.ts
+employee.component.spec.ts
+
+Angular event binding : one of the data binding technique
+class binding:  classname ,class,ngclass
+style binding
+event binding 
+
+API:Application programming interface
+react,javascript,angular can not connect directly to database so we need interface to connect it 
+so we require api to provide the data frm database
+
+SCSS -> Syntactically Awesome Style Sheet
+SCSS is the more advanced version of CSS
+
+
+
+tabulator:
+jasmine
+karma
+
+
+function:
+function in angular: dont use keyword function 
+we not use name it will show error becoz angular 13 has a strict mode = "true "
+ to avoid this use the type or mentioned the type of that variable (feature of typescript)
+
+ getname(){
+   alert("hello konverge")
+ }
+ getname2(name1:string){
+   alert(name1)
+ }
+
+we also can use any type :
+
+ getname(){
+   alert("hello konverge")
+ }
+ getname1(name1:string){
+   alert(name1)
+ }
+   getname2(name:any){
+   alert(name)
+ }
+  
+
+
+having two types in  either or 
+two or many type u want to define then use any that will be better 
+<button neewee-primary-btn (click)="getname()" class="btn-1">Dashboard</button>
+<button neewee-primary-btn (click)="getname1('Schedule')"class="btn-2">Schedule</button>
+<button neewee-primary-btn (click)="getname2('587')">Add new sheets</button>
+
+buttton in angular :
+
+<button neewee-primary-btn (click)="getname()" class="btn-1">Dashboard</button>
+<button neewee-primary-btn (click)="getname1('Schedule')"class="btn-2">Schedule</button>
+<button neewee-primary-btn (click)="getname2('587')">Add new sheets</button>
+
+<app-button (click ="getname()")>Dashboard 
+</app-button>
+<app-button (click ="getname1('Schedule')")>Schedule
+</app-button>
+<app-button (click ="getname2('587')")>Add new sheets
+</app-button>
+  
+
+
+Events:
+
+module -> component->pipes->directive 
+
+pipes in angular :
+how to format the data -> which should display in that template 
+angular pipe takes data as input n formats or transform the data to dislay in the template 
+
+* change the apperance of the data before presenting in template
+
+syntax :
+ Expression | pipeOperator[:pipeArgumment]
+

@@ -2,5 +2,84 @@
   <h1 class="text-sucess">{{ title }}</h1>
   <h1 class="text-sucess">{{ message }}</h1>
   <h2>{{ d1 }}</h2>
-  <img src="{{ img_loc }}" />
-</div>
+  <!-- <img src="{{ img_loc }}" /> -->
+  <h2 class="text-danger">{{ 414 + 100 + 100 }}</h2>
+  <h2>{{ f1() }}</h2>
+  <h2>Username:<input value="Konverge" /></h2>
+  <!-- it will disabled to change the input  -->
+
+  <!-- used property binding [disabled ]  then only it will work 
+    interpolation will also not work 
+  <h2>Username:<input disabled="{{false}}" value="Konverge" /></h2>
+ manually will also not work 
+  <h2>Username:<input disabled="false" value="Konverge" /></h2>
+
+   -->
+  <h2>Username:<input [disabled]="false" value="Konverge" /></h2>
+  <img [src]="img_loc" />
+  <h2 bind-innerText="message"></h2>
+  <!-- using property binding -->
+  <h2 class="text-primary" [innerText]="message"></h2>
+  <!-- 
+intrepolation : work with only string type 
+
+{{}} -> double curly brackets for interpolation 
+{{templateExpression} 
+
+Attribute and properties :
+Attribute are defined by html 
+Properties are defined by DOM
+Properties are defined by DOM(document object model)
+Attributes values cannont change once they are defined 
+property values can change 
+
+Property-Binding : work with non string type 
+ using [] we can use property binding 
+check in console :
+input property:
+$0.getAttribute("value")
+'Konverge'
+$0.value
+'Konverge ai'
+
+interface:
+ format batana k liye -> wht type of data should there ->number/string/any
+
+-->
+  <!-- button in angular with  -->
+  <button (click)="getname()" class="btn-1">Dashboard</button>
+  <button (click)="getname1('Schedule')" class="btn-2">Schedule</button>
+  <button (click)="getname2('587')">Add new sheets</button>
+
+  <!-- 
+
+    created function :
+
+     getname(){
+     alert("DASHBOARD")
+   }
+   
+  getname1(){
+     alert("SCHEDULE")
+  }
+   
+ getname2(){
+    alert("ADDNEWSHEETS")
+  } 
+
+--></div>
+
+<!-- Using findindex function : operated on tabs 
+
+      const getIndex = this.tabs.findIndex(x => x.name === value.name);
+      this.tabs[getIndex]['active'] = true;
+      
+      console.log("getIndex", getIndex)
+      const getActiveIndex = this.tabs.findIndex(x => x.active ===  value.name);
+      this.tabs[getActiveIndex]['active']= false;
+
+      const getDeactiveIndex = this.tabs.findIndex(x => x.name === value.name);
+      this.tabs[getDeactiveIndex]['active'] = true;
+    
+    
+    -->
