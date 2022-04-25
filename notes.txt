@@ -197,8 +197,12 @@ Inside app component :
 ->app.component.spec.ts   =testing file
 -> app.module.ts    = root module of application 
 
+to generator module :
+ng g module station-operator 
 
+To genrate component inside  module :
 
+ng g c station-operator/station-operator
 To generate component = ng g  c "nameofcomponent"
                example := ng g c employee
 ng ->  for angular cli
@@ -292,3 +296,20 @@ angular pipe takes data as input n formats or transform the data to dislay in th
 syntax :
  Expression | pipeOperator[:pipeArgumment]
 
+type of pipes:
+lowercase
+uperacse
+json
+slice
+titlecase
+percent
+number
+currency
+date
+
+
+
+
+#FF854E
+#FFC000
+#2F2640
