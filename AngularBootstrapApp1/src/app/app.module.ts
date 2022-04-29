@@ -7,6 +7,7 @@ import { EmployeeComponent } from './employee/employee.component';
 import { StudentComponent } from './student/student.component';
 import { CustomerComponent } from './customer/customer.component';
 import { TestComponent } from './test/test.component';
+import { TextDirective } from './text.directive';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { TestComponent } from './test/test.component';
     StudentComponent,
     CustomerComponent,
     TestComponent,
+    TextDirective,
   ],
   imports: [BrowserModule, FormsModule],
   providers: [],
