@@ -341,3 +341,7 @@ ngModel: The ngModel directive is used the achieve the two way data binding
 
 ngClass : the ngClass is used to add or remove the CSS classes from an HTML  element .Using the ngClass one can create dynamic styles in HTMl pages
 
+
+
+
+Routing:
