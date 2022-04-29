@@ -54,11 +54,48 @@ import { Component } from '@angular/core';
       <!-- template reference variable 
       <h3>Uername:<input #username /></h3> -->
 
+      <!-- pipes concepts in angular -->
       <h2>{{ title3 | uppercase }}</h2>
       <h2>{{ title4 | lowercase }}</h2>
       <h2>{{ title5 | titlecase }}</h2>
       <h2>{{ title5 | slice: 7:15 }}</h2>
+      <!--add pipe -> json representation of object  -->
       <h3>{{ employee | json }}</h3>
+      <h1>{{ 0.34 | percent }}</h1>
+      <!-- 1 : real numbers -->
+      <h1>{{ 3.9863 | number: '1.2-4' }}</h1>
+      <!-- 2 : real numbers -->
+      <h1>{{ 3.9863 | number: '2.2-4' }}</h1>
+      <h1>{{ 3.9863 | number: '4.2-4' }}</h1>
+
+      <h1 class="text-info">
+        <!-- code : country name should display -->
+        Product Price :{{ price | currency: 'INR' }}
+      </h1>
+      <h1 class="text-info">
+        Product Price :{{ price | currency: 'EUR':'code' }}
+      </h1>
+      <h1 class="text-info">
+        Product Price :{{ price | currency: 'GBP':'code' }}
+      </h1>
+
+      <!-- date pipe ->format of date -->
+      <h1>{{ d1 }}</h1>
+      <h1 class="text-primary">short Representation</h1>
+      <h1>{{ d1 | date }}</h1>
+      <h1>{{ d1 | date: 'short' }}</h1>
+      <h1>{{ d1 | date: 'shortDate' }}</h1>
+      <h1>{{ d1 | date: 'shortTime' }}</h1>
+      <h1 class="text-danger">long Representation</h1>
+      <h1>{{ d1 | date }}</h1>
+      <h1>{{ d1 | date: 'long' }}</h1>
+      <h1>{{ d1 | date: 'longDate' }}</h1>
+      <h1>{{ d1 | date: 'longTime' }}</h1>
+      <h1 class="text-success">medium Representation</h1>
+      <h1>{{ d1 | date }}</h1>
+      <h1>{{ d1 | date: 'medium' }}</h1>
+      <h1>{{ d1 | date: 'mediumDate' }}</h1>
+      <h1>{{ d1 | date: 'mediumTime' }}</h1>
     </div>
   `,
   // inline template :
@@ -90,7 +127,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   public title: string = 'Welcome to my home ';
   public message: string = 'Welcome to Node-Js with shivali ';
-  // public d1 = new Date();
+  public d1 = new Date();
   // // public img_loc = './assets/lion.jpg';
   // num = 100;
   // f1() {
@@ -154,4 +191,5 @@ export class AppComponent {
     ename: 'shivali umbarkar',
     ecity: 'Nagpur',
   };
+  public price = 34.855;
 }

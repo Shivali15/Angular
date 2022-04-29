@@ -1,0 +1,130 @@
+<div class="conatiner m-3 p-3">
+  <!--       adding bootstrap :
+         "styles": [
+              "src/styles.css"
+              // "./node_modules/bootstrap/dist/css/bootstrap.css"
+            ],
+            "scripts": [
+              // "./node_modules/bootstrap/dist/js/bootstrap.js"
+
+            ] 
+   -->
+
+  <!-- m-> margin   p -> padding -->
+  <!-- added bootstrap table  -->
+  <table class="table table-striped table-hover table-bordered">
+    <thead>
+      <tr>
+        <th>E-ID</th>
+        <th>E-NAME</th>
+        <th>E-CITY</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1987</td>
+        <td>Shivali</td>
+        <td>Nagpur</td>
+      </tr>
+      <tr>
+        <td>1987</td>
+        <td>Shivali</td>
+        <td>Nagpur</td>
+      </tr>
+      <tr>
+        <td>1987</td>
+        <td>Shivali</td>
+        <td>Nagpur</td>
+      </tr>
+      <tr>
+        <td>1987</td>
+        <td>Shivali</td>
+        <td>Nagpur</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<demo></demo>
+<div class="container m-3 p-3">
+  <!--  if the username and pasword is correct then only login succes will display  -->
+  <!-- passing else elseBlock  it will display the text as it fails  -->
+  <!-- now i have pass incorrect username so else part will display -->
+  <div
+    *ngIf="
+      username == 'root1' && password == 'root0980';
+      then ifBlock;
+      else elseBlock
+    "
+  ></div>
+  <ng-template #ifBlock>
+    <h1 class="text-success">login success</h1>
+  </ng-template>
+
+  <!-- use the tag ng-template  give the name of block :#elseBlock-->
+  <ng-template #elseBlock>
+    <h1 class="text-danger">Login Failed</h1>
+  </ng-template>
+
+  <h1>{{ title }}</h1>
+  <hr />
+  <h2 class="text-primary">Displaying Colors</h2>
+  <!-- <h2 class="text-success">Displaying Color</h2> -->
+  <ul class="list-group" *ngFor="let color of colors">
+    <li class="list-group-item">{{ color }}</li>
+  </ul>
+
+  <h2>Displaying Employee Details:</h2>
+  <table class="table table-bordered table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Employee_ID</th>
+
+        <th>Employee_Name</th>
+
+        <th>Employee_City</th>
+
+        <th>Employee_Salary</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of employees">
+        <td>{{ employee.eid }}</td>
+        <!-- pipes uses -->
+        <td>{{ employee.ename | uppercase }}</td>
+        <td>{{ employee.ecity }}</td>
+        <td>{{ employee.esalary | currency: "INR" }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="Container m-3 p-4">
+  <h1>{{ title }}</h1>
+  <div class="'from-group">
+    <label>Username : </label>
+    <hr />
+    <!-- event binding + property binding = two way data binding  -->
+    <input [(ngModel)]="User_name" class="from-control" />
+    <h2 class="text-primary">{{ User_name }}</h2>
+  </div>
+
+  <div class="from-group">
+    <label>Country : </label>
+    <hr />
+    <select [(ngModel)]="country" class="from-control">
+      <option selected>Select Your Country</option>
+      <option *ngFor="let country of countries">{{ country }}</option>
+    </select>
+  </div>
+  <h2 class="text-primary">Username : {{ User_name }}</h2>
+
+  <h2 class="text-primary">CountryName : {{ country }}</h2>
+</div>
+<!--  else block is define using ng-template directory use the tag ng-template -->
+<!-- difference betwwen *ngif="false"   and [hidden]='false' -->
+
+<div class="container m-3 p-3">
+  <!-- <h1 [ngClass]="myClasses">{{ Title }}</h1> -->
+  <h1 [ngStyle]="myStyles">{{ Title }}</h1>
+</div>
