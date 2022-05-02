@@ -324,24 +324,3 @@ headerSort: false
 
 
 http://tabulator.info/docs/4.5/edit
-
-
-
-*ngIf :if else conditon
- 
-Difference between [hidden]='false'   and *ngIf='false' is that the first mothod simply hides the elemnt 
-the second method  with ngif removes the element completely from the DOM 
-
-hidden  does not remove the element from the DOM .But it just hides it.
-
-ngIf does not hide DOM element .it removes the entire elemnet along with its subtree from the DOM. it also removes the corresponding state freeing up the resources attached to the element
-
-
-ngModel: The ngModel directive is used the achieve the two way data binding 
-
-ngClass : the ngClass is used to add or remove the CSS classes from an HTML  element .Using the ngClass one can create dynamic styles in HTMl pages
-
-
-
-
-Routing:
