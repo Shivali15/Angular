@@ -13,7 +13,8 @@ import { Java14Component } from './java14/java14.component';
 import { AngularComponent } from './angular/angular.component';
 import { NodejsComponent } from './nodejs/nodejs.component';
 import { CoursedetailsComponent } from './coursedetails/coursedetails.component';
-
+// imported  services
+import { CoursesService } from './courses.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,13 +27,11 @@ import { CoursedetailsComponent } from './coursedetails/coursedetails.component'
     Java14Component,
     AngularComponent,
     NodejsComponent,
-    CoursedetailsComponent
+    CoursedetailsComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+  imports: [BrowserModule, AppRoutingModule],
+  // call services in providers
+  providers: [CoursesService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
