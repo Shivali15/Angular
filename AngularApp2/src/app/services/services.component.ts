@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { CoursesService } from '../courses.service';
+import { Icourse } from '../Interface/courses';
+
 @Component({
   selector: 'app-services',
   templateUrl: './services.component.html',
   styleUrls: ['./services.component.css'],
 })
 export class ServicesComponent implements OnInit {
-  courses: any = [];
+  courses: any | Icourse[];
   //   { cid: 1, cname: 'Java14', trainer: 'Abhishek' },
   //   { cid: 2, cname: 'Angular', trainer: 'Piyush' },
   //   { cid: 3, cname: 'Bootstrap4', trainer: 'Vrushali' },
@@ -17,6 +19,8 @@ export class ServicesComponent implements OnInit {
   constructor(private _coursesService: CoursesService) {}
 
   ngOnInit(): void {
-    this.courses = this._coursesService.getAllCourses();
+    this._coursesService.getAllCourses().subscribe((data) => {
+      this.courses = data;
+    });
   }
 }

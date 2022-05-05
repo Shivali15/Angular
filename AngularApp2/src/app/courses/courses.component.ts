@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CoursesService } from '../courses.service';
+import { Icourse } from '../Interface/courses';
 @Component({
   selector: 'app-courses',
   templateUrl: './courses.component.html',
@@ -11,7 +12,7 @@ export class CoursesComponent implements OnInit {
     private router: Router,
     private _coursesService: CoursesService
   ) {}
-  courses: any = [];
+  courses: any | Icourse[];
 
   onSelect(course: { cid: number }) {
     // alert();
@@ -20,6 +21,8 @@ export class CoursesComponent implements OnInit {
     // coursedetails/:cid
   }
   ngOnInit(): void {
-    this.courses = this._coursesService.getAllCourses();
+    this._coursesService.getAllCourses().subscribe((data) => {
+      this.courses = data;
+    });
   }
 }
