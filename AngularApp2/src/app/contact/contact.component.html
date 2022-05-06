@@ -1,43 +1,152 @@
 <h3>Contact us Page</h3>
 <!--  reference varibale enquiry -->
-<form #enquiry="ngForm" action="" method="POST">
-  <h3>{{ enquiry.value | json }}</h3>
+<!-- novalidate : this will pervent the browser from kicking in the default validation -->
+<form
+  (ngSubmit)="submitForm()"
+  novalidate
+  #enquiry="ngForm"
+  action=""
+  method="POST"
+>
+  <!-- <h3>{{ enquiry.value | json }}</h3> -->
   <hr />
-  <h3>{{ enquiry1 | json }}</h3>
+  <!-- <h3>{{ enquiry1 | json }}</h3> -->
   <div class="form-group m-2">
-    <label>Name</label>
-    <input name="name" ngModel class="form-control" />
+    <label>Name</label>&nbsp;
+    <small class="text-danger" [class.d-none]="name.valid || name.untouched">
+      *[Name is required]</small
+    >
+
+    <!-- two way binding : changes will updated to both ng form and ngmodel also -->
+    <!-- gather info using reference variable #name required (property )attribute : set to mandatory -->
+    <!-- bootstrap property invalid  -->
+    <input
+      #name="ngModel"
+      required
+      name="name"
+      [(ngModel)]="enquiry1.name"
+      [class.is-invalid]="name.invalid && name.touched"
+      class="form-control"
+    />
+  </div>
+  <!-- <span class="text-info">{{ name.className }}</span> -->
+  <!-- controlling states and validity -->
+  <!--  name is not there then the invalid property will true otherwise false  -->
+  {{ name.invalid }}
+  <div class="form-group m-2">
+    <label>Email</label>&nbsp;
+    <span *ngIf="email.errors && email.invalid && email.touched">
+      <small class="text-danger" *ngIf="email.errors?.['required']">
+        *[Email is required]</small
+      >
+      <small class="text-danger" *ngIf="email.errors?.['pattern']">
+        *[Please Enter Valid Email Address]</small
+      >
+    </span>
+    <input
+      #email="ngModel"
+      required
+      placeholder="Your email"
+      pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+      name="email"
+      [(ngModel)]="enquiry1.email"
+      class="form-control"
+      [class.is-invalid]="email.invalid && email.touched"
+    />
   </div>
   <div class="form-group m-2">
-    <label>Email</label>
-    <input name="email" ngModel class="form-control" />
+    <label>Mobile no.</label>&nbsp;
+    <small
+      class="text-danger"
+      [class.d-none]="mobile.valid || mobile.untouched"
+    >
+      *[Mobile no. is required]</small
+    >
+    <input
+      #mobile="ngModel"
+      pattern="^((\\+91-?)|0)?[0-9]{10}$"
+      required
+      name="mobile"
+      [(ngModel)]="enquiry1.mobile"
+      class="form-control"
+      [class.is-invalid]="mobile.invalid && mobile.touched"
+    />
   </div>
+
   <div class="form-group m-2">
-    <label>Mobile no.</label>
-    <input name="mobile" ngModel class="form-control" />
-  </div>
-  <div class="form-group m-2">
-    <label>Gender</label>
-    <select name="gender" ngModel class="form-control">
-      <option value="">--Select Gender--</option>
+    <label>Gender</label>&nbsp;
+    <small
+      class="text-danger"
+      [class.d-none]="!hasGenderError || gender.untouched"
+    >
+      *[Gender is required]</small
+    >
+    <select
+      #gender="ngModel"
+      (blur)="validateGender(gender.value)"
+      (change)="validateGender(gender.value)"
+      required
+      name="gender"
+      ngModel
+      class="form-control"
+      [class.is-invalid]="gender.invalid && gender.touched"
+    >
+      <option value="default">--Select Gender--</option>
       <option value="male">Male</option>
       <option value="female">Female</option>
     </select>
   </div>
   <div class="form-group m-2">
-    <label>Course</label>
-    <select name="course" ngModel class="form-control">
-      <option>--Select Course--</option>
+    <label>Course</label>&nbsp;
+    <small
+      class="text-danger"
+      [class.d-none]="!hasCourseError || course.untouched"
+    >
+      *[Courses is required]</small
+    >
+    <select
+      (blur)="validatecourse(course.value)"
+      (change)="validatecourse(course.value)"
+      #course="ngModel"
+      required
+      name="course"
+      ngModel
+      class="form-control"
+      [class.is-invalid]="course.invalid && course.touched"
+    >
+      <option value="default">--Select Course--</option>
       <option *ngFor="let course of courses">{{ course }}</option>
     </select>
   </div>
   <div class="form-group m-2">
-    <label>Training Mode</label>
-    <select name="trainingmode" ngModel class="form-control">
-      <option value="">--Select Training Mode--</option>
+    <label>Training Mode</label>&nbsp;
+    <small
+      class="text-danger"
+      [class.d-none]="!hasTrainingError || trainingmode.untouched"
+    >
+      *[Trainingmode is required]</small
+    >
+    <select
+      (blur)="validateTrtainingmode(trainingmode.value)"
+      (change)="validateTrtainingmode(trainingmode.value)"
+      #trainingmode="ngModel"
+      required
+      name="trainingmode"
+      ngModel
+      class="form-control"
+      [class.is-invalid]="trainingmode.invalid && trainingmode.touched"
+    >
+      <option value="default">--Select Training Mode--</option>
       <option value="online">Online</option>
       <option value="classroom">Classroom</option>
     </select>
   </div>
-  <button class="btn btn-success m-2">Send Enquiry</button>
+  <button
+    [disabled]="
+      enquiry.invalid || hasTrainingError || hasCourseError || hasGenderError
+    "
+    class="btn btn-success m-2"
+  >
+    Send Enquiry
+  </button>
 </form>
