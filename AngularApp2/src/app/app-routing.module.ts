@@ -4,7 +4,7 @@ import { AboutComponent } from './about/about.component';
 import { AngularComponent } from './angular/angular.component';
 import { ContactComponent } from './contact/contact.component';
 import { CoursedetailsComponent } from './coursedetails/coursedetails.component';
-import { CoursesComponent } from './courses/courses.component';
+import { CoursesComponent } from './coursedetails/courses/courses.component';
 import { HomeComponent } from './home/home.component';
 import { Java14Component } from './java14/java14.component';
 import { NodejsComponent } from './nodejs/nodejs.component';

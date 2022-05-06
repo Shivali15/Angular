@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { CoursesService } from '../courses.service';
-import { Icourse } from '../Interface/courses';
+import { CoursesService } from '../../courses.service';
+import { Icourse } from '../../Interface/courses';
 @Component({
   selector: 'app-courses',
   templateUrl: './courses.component.html',
