@@ -324,3 +324,6 @@ headerSort: false
 
 
 http://tabulator.info/docs/4.5/edit
+
+
+Two-way binding gives components in your application a way to share data. Use two-way binding to listen for events and update values simultaneously between parent and child components.

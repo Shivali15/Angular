@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 import { Enquiry } from '../enquiry';
 import { EnquiryService } from '../enquiry.service';
 @Component({
@@ -38,14 +37,35 @@ export class ContactComponent implements OnInit {
     }
   }
 
-  submitForm() {
+  // submitForm() {
+  //   console.log(this.enquiry1);
+  //   // using diffrence variable enquiryservice method need to call sendEnquiry and passing enquiry1 object data to it
+  //   this.enquiryService.sendEnquiry(this.enquiry1).subscribe(
+  //     (data) => console.log('Data', data),
+  //     (error) => console.log('Error!', error)
+  //   );
+  // }
+
+  //  after submmiting  form by user it need to hide from end user
+  // flag is hua ek parkar ka
+  isFormSubmitted: boolean = true;
+
+  message: string | undefined;
+
+  submitForm = () => {
+    // message will appear when form will submmited
+    this.message =
+      'Thank you  for Contacting Konverge.AI, Our Team Will Get Back shortly';
+
+    this.isFormSubmitted = false;
+
     console.log(this.enquiry1);
-    // using diffrence variable enquiryservice method need to call sendEnquiry and passing enquiry1 object data to it
-    this.enquiryService.sendEnquiry(this.enquiry1),
-      new Observable().subscribe(
-        (data) => console.log('Data', data),
-        (error) => console.log('Error!', error)
-      );
-  }
+
+    this.enquiryService.sendEnquiry(this.enquiry1).subscribe(
+      (data) => console.log('Data', data),
+
+      (error) => console.log('Error', error)
+    );
+  };
   ngOnInit(): void {}
 }

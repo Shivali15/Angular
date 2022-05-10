@@ -1,8 +1,11 @@
 <h3>Contact us Page</h3>
 <!--  reference varibale enquiry -->
 <!-- novalidate : this will pervent the browser from kicking in the default validation -->
+
+<h3 class="text-info">{{ message }}</h3>
 <form
   (ngSubmit)="submitForm()"
+  *ngIf="isFormSubmitted"
   novalidate
   #enquiry="ngForm"
   action=""
@@ -87,7 +90,7 @@
       (change)="validateGender(gender.value)"
       required
       name="gender"
-      ngModel
+      [(ngModel)]="enquiry1.gender"
       class="form-control"
       [class.is-invalid]="gender.invalid && gender.touched"
     >
@@ -110,7 +113,7 @@
       #course="ngModel"
       required
       name="course"
-      ngModel
+      [(ngModel)]="enquiry1.course"
       class="form-control"
       [class.is-invalid]="course.invalid && course.touched"
     >
@@ -132,7 +135,7 @@
       #trainingmode="ngModel"
       required
       name="trainingmode"
-      ngModel
+      [(ngModel)]="enquiry1.trainingmode"
       class="form-control"
       [class.is-invalid]="trainingmode.invalid && trainingmode.touched"
     >
@@ -150,3 +153,12 @@
     Send Enquiry
   </button>
 </form>
+
+<!--  only using ngModel : will not work for  server listening  -->
+
+<!-- 2 way  binding ->  [(ngModel)]="enquiry1.trainingmode"   :
+ngModel -> The ng-model directive binds the value of HTML controls (input, select, textarea) to application data. -->
+
+<!-- Angular's two-way binding syntax is a combination of square brackets and parentheses, [()]. The [()] syntax combines the brackets of property binding, [], with the parentheses of event binding, (), -->
+
+<!-- Two-way binding gives components in your application a way to share data. Use two-way binding to listen for events and update values simultaneously between parent and child components. -->
